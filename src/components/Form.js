@@ -23,7 +23,7 @@ class Form extends Component {
       <form>
         <div>
           <h2>Nome</h2>
-          <input
+          <Input
             name="name"
             type="text"
             testid="name-input"
