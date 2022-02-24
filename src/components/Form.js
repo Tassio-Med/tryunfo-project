@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Input from './Input';
 
 class Form extends Component {
   render() {
@@ -12,7 +13,7 @@ class Form extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      // hasTrunfo,
+      hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
@@ -20,70 +21,69 @@ class Form extends Component {
 
     return (
       <form>
-        <label htmlFor="name-input">
-          Nome
+        <div>
+          <h2>Nome</h2>
           <input
+            name="name"
             type="text"
-            id="name-input"
-            data-testid="name-input"
+            testid="name-input"
             value={ cardName }
             onChange={ onInputChange }
           />
-        </label>
-        <label htmlFor="description">
-          Descrição
+        </div>
+        <div>
+          <h2>Descrição</h2>
           <textarea
-            data-testid="description-input"
-            id="description"
+            name="description"
+            testid="description-input"
             value={ cardDescription }
             onChange={ onInputChange }
           />
-        </label>
-
-        <label htmlFor="attr1">
-          Attr01
+        </div>
+        <div>
+          <h2>Attr01</h2>
           <input
             type="number"
-            id="attr1"
-            data-testid="attr1-input"
+            name="attr1"
+            testid="attr1-input"
             value={ cardAttr1 }
             onChange={ onInputChange }
           />
-        </label>
-        <label htmlFor="attr2">
-          Attr02
+        </div>
+        <div>
+          <h2>Attr02</h2>
           <input
             type="number"
-            id="attr2"
-            data-testid="attr2-input"
+            name="attr2"
+            testid="attr2-input"
             value={ cardAttr2 }
             onChange={ onInputChange }
           />
-        </label>
-        <label htmlFor="attr3">
-          Attr03
+        </div>
+        <div>
+          <h2>Attr03</h2>
           <input
             type="number"
-            id="attr3"
-            data-testid="attr3-input"
+            name="attr3"
+            testid="attr3-input"
             value={ cardAttr3 }
             onChange={ onInputChange }
           />
-        </label>
-        <label htmlFor="image">
+        </div>
+        <div>
           <input
             type="text"
-            id="image"
-            data-testid="image-input"
+            name="image"
+            testid="image-input"
             value={ cardImage }
             onChange={ onInputChange }
           />
-        </label>
-        <label htmlFor="rare">
-          Raridade:
+        </div>
+        <div>
+          <h2>Raridade:</h2>
           <select
-            id="rare"
-            data-testid="rare-input"
+            name="rare"
+            testid="rare-input"
             value={ cardRare }
             onChange={ onInputChange }
           >
@@ -91,26 +91,28 @@ class Form extends Component {
             <option>raro</option>
             <option>muito raro</option>
           </select>
-
-        </label>
-        <label htmlFor="trunfo">
-          Super Trybe Trunfo
+        </div>
+        <div>
+          <h2>Super Trybe Trunfo</h2>
           <input
             type="checkbox"
-            id="trunfo"
-            data-testid="trunfo-input"
+            name="trunfo"
+            testid="trunfo-input"
             checked={ cardTrunfo }
             onChange={ onInputChange }
           />
-        </label>
-        <button
-          type="button"
-          data-testid="save-button"
-          disabled={ isSaveButtonDisabled }
-          onClick={ onSaveButtonClick }
-        >
-          Salvar
-        </button>
+        </div>
+        <div>
+          <button
+            type="button"
+            testid="save-button"
+            disabled={ isSaveButtonDisabled }
+            onClick={ onSaveButtonClick }
+          >
+            Salvar
+          </button>
+          <p>{ hasTrunfo }</p>
+        </div>
       </form>
     );
   }
