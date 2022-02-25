@@ -19,6 +19,19 @@ class Form extends Component {
       onSaveButtonClick,
     } = this.props;
 
+    const datacheck = (
+      <input
+        id="trunfo"
+        name="trunfo"
+        type="checkbox"
+        data-testid="trunfo-input"
+        value={ cardTrunfo }
+        onChange={ onInputChange }
+        datacheck={ cardTrunfo }
+      />
+    );
+    const checkAlert = 'Você já tem um Super Trunfo em seu baralho';
+
     return (
       <form>
         <div>
@@ -87,18 +100,8 @@ class Form extends Component {
             <option>raro</option>
             <option>muito raro</option>
           </select>
+          <p>{hasTrunfo ? checkAlert : datacheck}</p>
         </div>
-        <label htmlFor="trunfo">
-          <h2>Super Trybe Trunfo</h2>
-          <input
-            type="checkbox"
-            name="trunfo"
-            id="trunfo"
-            data-testid="trunfo-input"
-            checked={ cardTrunfo }
-            onChange={ onInputChange }
-          />
-        </label>
         <div>
           <button
             type="button"
@@ -108,7 +111,6 @@ class Form extends Component {
           >
             Salvar
           </button>
-          <p>{ hasTrunfo }</p>
         </div>
       </form>
     );
