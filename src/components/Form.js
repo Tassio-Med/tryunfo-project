@@ -27,10 +27,11 @@ class Form extends Component {
         data-testid="trunfo-input"
         value={ cardTrunfo }
         onChange={ onInputChange }
-        datacheck={ cardTrunfo }
+        checked={ cardTrunfo }
       />
     );
-    const checkAlert = 'Você já tem um Super Trunfo em seu baralho';
+
+    const trunfoAlert = ('Você já tem um Super Trunfo em seu baralho');
 
     return (
       <form>
@@ -100,7 +101,9 @@ class Form extends Component {
             <option>raro</option>
             <option>muito raro</option>
           </select>
-          <p>{hasTrunfo ? checkAlert : datacheck}</p>
+
+          {hasTrunfo ? trunfoAlert : datacheck}
+
         </div>
         <div>
           <button
