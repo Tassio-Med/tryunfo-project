@@ -15,6 +15,7 @@ class App extends React.Component {
       rare: 'normal',
       trunfo: false,
       isSaveButtonDisabled: true,
+      deckCard: [],
     };
     this.onInputChange = this.onInputChange.bind(this);
   }
@@ -25,6 +26,26 @@ class App extends React.Component {
     this.setState({
       [name]: value,
     }, () => this.saveValidateButton());
+  }
+
+  onSaveButtonClick = (e) => {
+    e.preventDefault();
+
+    this.setState((initState) => ({
+      deckCard: [...initState.deckCard, initState],
+    }), () => {
+      this.setState({
+        name: '',
+        description: '',
+        attr1: '0',
+        attr2: '0',
+        attr3: '0',
+        image: '',
+        rare: 'normal',
+        trunfo: false,
+        isSaveButtonDisabled: true,
+      });
+    });
   }
 
   saveValidateButton() {
@@ -83,6 +104,7 @@ class App extends React.Component {
           cardRare={ rare }
           cardTrunfo={ trunfo }
           isSaveButtonDisabled={ isSaveButtonDisabled }
+          onSaveButtonClick={ this.onSaveButtonClick }
           onInputChange={ this.onInputChange }
         />
         <Card
